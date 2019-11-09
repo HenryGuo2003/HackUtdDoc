@@ -1,0 +1,25 @@
+Asthma
+Bronchitis
+Bronchiectasis
+Pneumothorax
+Tuberculosis
+
+Uterine fibroids
+Infertility
+Vaginitis
+Cervicitis
+Ovarian cyst
+
+Pharyngitis
+Rhinitis
+Parotitis
+Gastroesophageal reflux
+Sinusitis
+Flu type A
+Flu type B
+
+Hyperthyroidism
+Anemia
+Diabetes
+Gout
+Osteoporosis
