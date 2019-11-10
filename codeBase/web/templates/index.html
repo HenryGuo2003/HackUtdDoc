@@ -7,6 +7,7 @@
 			<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
 			<!-- Load Vue -->
 			<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 			<!-- Load script file.  'defer' loads after body is generated -->
@@ -22,7 +23,7 @@
 			</script>
 		</head>
 		<body>
-			<div id="app" class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+			<div id="app" class="w3-display-container w3-animate-opacity w3-text-white">
 	  <!-- Instruction -->
 				<div class="w3-bar w3-xlarge">
 					<a class="w3-bar-item w3-button" href="#"><i class="fa fa-bars"></i></a>
@@ -30,7 +31,7 @@
 					<a class="w3-bar-item w3-button w3-right" href="#"><i class="fa fa-search"></i></a>
 				</div>
 				
-				<div class="w3-display-center blk">
+				<div class="w3-display-topmiddle blk">
 					<!--<h1 class="w3-jumbo w3-animate-top w3-center">Hello World</h1>
 					<hr class="w3-border-grey" style="margin:auto;width:40%">-->
 					<p id="title" class="w3-large w3-center">Please Fill Your Info.</p>
@@ -79,26 +80,26 @@
 					</div>
 				
 					<div id="Lower" class="w3-container symp" style="display:none">
-						<ul id="lower" class="data-lower w3-ul w3-hoverable">
-							<li>Symptom 1</li>
-							<li>Symptom 2</li>
-							<li>Symptom 3</li>
+					    <ul id="lower_symp_list" class="data-lower w3-ul w3-hoverable">
+						    <li v-for="symp in lower_symps_list">
+							    {{ '{{ symp.code }}. {{ symp.name }}' }}
+						    </li>
 						</ul>
 					</div>
 					
 					<div id="Skin" class="w3-container symp" style="display:none">
-						<ul id="skin" class="data-skin w3-ul w3-hoverable">
-							<li>Symptom 1</li>
-							<li>Symptom 2</li>
-							<li>Symptom 3</li>
+					    <ul id="skin_symp_list" class="data-skin w3-ul w3-hoverable">
+						    <li v-for="symp in skin_symps_list">
+							    {{ '{{ symp.code }}. {{ symp.name }}' }}
+						    </li>
 						</ul>
 					</div>
 
 					<div id="General" class="w3-container symp" style="display:none">
-						<ul id="general" class="data-general w3-ul w3-hoverable">
-							<li>Symptom 1</li>
-							<li>Symptom 2</li>
-							<li>Symptom 3</li>
+				   	    <ul id="general_symp_list" class="data-general w3-ul w3-hoverable">
+						    <li v-for="symp in general_symps_list">
+							    {{ '{{ symp.code }}. {{ symp.name }}' }}
+						    </li>
 						</ul>
 					</div>
 				</div>

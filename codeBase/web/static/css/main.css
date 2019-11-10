@@ -1,6 +1,5 @@
 body,h1 {font-family: "Raleway", sans-serif}
-body, html {height: 100%}
-.bgimg {
+body, html {
     background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/always_grey.png');
     min-height: 100%;
     background-position: center;
