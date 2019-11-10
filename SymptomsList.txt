@@ -1,11 +1,11 @@
 sneezing
-runny noise
+runny nose
 headache
 cough
 muscle ache
 fever
 sneezing
-runny noise
+runny nose
 sore throat
 itchy eyes
 dark eye shades
@@ -21,7 +21,7 @@ weight loss
 dry cough
 sore throat
 discolored nasel discharge
-stuff noise
+stuff nose
 frontal headache
 pain in teeth
 cough
@@ -31,14 +31,14 @@ bad breath
 fever
 cough
 sore throat
-runny noise
+runny nose
 muscle ache
 fatigue
 vomitting
 diarrhea
 dry cough
-runny noise
-stuff noise
+runny nose
+stuff nose
 sore throat
 muscle ache
 headache

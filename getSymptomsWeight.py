@@ -24,7 +24,7 @@ symptomsDictionary = defaultdict(float)
 # Count symptoms number and save it into dictionary
 for symptoms in symptomsList:
     print(symptoms.split()[0])
-    symptomsDictionary[symptoms.replace(' ', '_').split()[0]] += 1
+    symptomsDictionary[symptoms.strip('\n')] += 1
 
 # Change each count number into its reciprocal
 for symptomsNum in symptomsDictionary:
