@@ -46,15 +46,13 @@ for i in range(DocNum):
     elif randomDeptNum == 6:
         resultRandomNum = random.sample(range(32, 34), randomDoctorMajorNum)
     generateDocMajor.append(docMajorLine[randomDeptNum-1].strip())  # Save random major department into generateDocMajor
-    generateDocMajorSymptoms.append('')
+    generateDocMajorSymptoms.append([])
     for randNum in resultRandomNum:
-        generateDocMajorSymptoms[i] = generateDocMajorSymptoms[i] + (docLine[randNum].strip()) + ','
-    generateDocMajorSymptoms[i] = generateDocMajorSymptoms[i][:-1]
+        generateDocMajorSymptoms[i].append(docLine[randNum].strip())
     # Generate rank number
-    generateMajorRank.append('')
+    generateMajorRank.append([])
     for _ in range(randomDoctorMajorNum):
-        generateMajorRank[i] = generateMajorRank[i] + str(randint(1, 10)) + ','
-    generateMajorRank[i] = generateMajorRank[i][:-1]
+        generateMajorRank[i].append(randint(1, 10))
 
 # Read Top 100 Names in the USA
 generateDocName = []
