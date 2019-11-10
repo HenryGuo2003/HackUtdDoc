@@ -1,5 +1,7 @@
 from random import seed, randint, randrange
 import random
+import json
+from collections import defaultdict
 
 """
  * @author Henry Guo on 11/08/19.
@@ -23,8 +25,11 @@ seed(1)
 
 # Read Doctor Majors file
 resultRandomNum = []
-generateDocMajor = []
+generateDocMajorSymptoms = []  # Doctors' detail major symptoms
+generateDocMajor = []  # Doctors' major department
+generateMajorRank = []  # Doctors' rank number of each major
 docLine = txt2list('DoctorMajorSymptoms.txt')
+docMajorLine = txt2list('DoctorMajors.txt')
 for i in range(DocNum):
     randomDeptNum = randint(1, 4)
     randomDoctorMajorNum = randint(1, 3)
@@ -36,17 +41,27 @@ for i in range(DocNum):
         resultRandomNum = random.sample(range(12, 18), randomDoctorMajorNum)
     elif randomDeptNum == 4:
         resultRandomNum = random.sample(range(20, 24), randomDoctorMajorNum)
-    generateDocMajor.append('')
+    elif randomDeptNum == 5:
+        resultRandomNum = random.sample(range(26, 30), randomDoctorMajorNum)
+    elif randomDeptNum == 6:
+        resultRandomNum = random.sample(range(32, 34), randomDoctorMajorNum)
+    generateDocMajor.append(docMajorLine[randomDeptNum-1].strip())  # Save random major department into generateDocMajor
+    generateDocMajorSymptoms.append('')
     for randNum in resultRandomNum:
-        generateDocMajor[i] = generateDocMajor[i] + (docLine[randNum].strip()) + ','
-    generateDocMajor[i] = generateDocMajor[i][:-1]
+        generateDocMajorSymptoms[i] = generateDocMajorSymptoms[i] + (docLine[randNum].strip()) + ','
+    generateDocMajorSymptoms[i] = generateDocMajorSymptoms[i][:-1]
+    # Generate rank number
+    generateMajorRank.append('')
+    for _ in range(randomDoctorMajorNum):
+        generateMajorRank[i] = generateMajorRank[i] + str(randint(1, 10)) + ','
+    generateMajorRank[i] = generateMajorRank[i][:-1]
 
 # Read Top 100 Names in the USA
 generateDocName = []
 generateDocGender = []
 topName = txt2list("Top100Names.txt")
-for _ in range(DocNum):
-    randomNameNum = randint(0, 199)
+randomNameNumList = random.sample(range(0, 199), DocNum)
+for randomNameNum in randomNameNumList:
     if randomNameNum >= 100:
         generateDocGender.append('FeMale')
         generateDocName.append(topName[randomNameNum-100].strip().split(' ')[2])
@@ -74,10 +89,19 @@ for _ in range(DocNum):
     randomPhoneNumber = randrange(0, 398, 4)
     generatePhoneNumber.append(phoneList[randomPhoneNumber].strip())
 
+# Save generate data as json file
+docDictionary = defaultdict(list)
 for i in range(DocNum):
-    print(generateDocMajor[i])
-    print(generateDocName[i])
-    print(generateDocGender[i])
-    print(generateStateName[i])
-    print(generateSeniority[i])
-    print(generatePhoneNumber[i])
+    docDictionary[generateDocName[i]] = []
+    docDictionary[generateDocName[i]].append({
+        'Gender': generateDocGender[i],
+        'Major': generateDocMajor[i],
+        'Symptoms': generateDocMajorSymptoms[i],
+        'Rating': generateMajorRank[i],
+        'Seniority': generateSeniority[i],
+        'Location': generateStateName[i],
+        'PhoneNumber': generatePhoneNumber[i]
+    })
+
+with open('DocDictionary.json', 'w') as outfile:
+    json.dump(docDictionary, outfile)
