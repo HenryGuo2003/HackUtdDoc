@@ -19,103 +19,111 @@
 				document.getElementById("title").innerHTML = "How Do You Feel?";
 				document.getElementById("info").style.display = "none";
 				document.getElementById("diagnosis").style.display = "inline-block";
+				document.getElementById("Selection").style.display = "inline-block";
 			}
 			</script>
 		</head>
 		<body>
-			<div id="app" class="w3-display-container w3-animate-opacity w3-text-white">
-	  <!-- Instruction -->
-				<div class="w3-bar w3-xlarge">
+			<div id="app" class="w3-animate-opacity w3-text-white">
+				<div class="w3-bar w3-top w3-xlarge">
 					<a class="w3-bar-item w3-button" href="#"><i class="fa fa-bars"></i></a>
 					<span class="w3-bar-item">Match Doc</span>
 					<a class="w3-bar-item w3-button w3-right" href="#"><i class="fa fa-search"></i></a>
 				</div>
-				
-				<div class="w3-display-topmiddle blk">
-					<!--<h1 class="w3-jumbo w3-animate-top w3-center">Hello World</h1>
-					<hr class="w3-border-grey" style="margin:auto;width:40%">-->
-					<p id="title" class="w3-large w3-center">Please Fill Your Info.</p>
-				<div>
-				
-				<br>
-				<!-- info -->
-				<div id="info" class="basic-info">
-					<form class="w3-display-container">
-						<label class="w3-padding-16">Name</label>
-						<input class="w3-input w3-padding-16" type="text" name="fname" placeholder="First Name">
-						<input class="w3-input w3-padding-16" type="text" name="lname" placeholder="Last Name">
-						<label class="info-label w3-padding-16">Gender</label>
-						<input class="w3-input w3-padding-16" type="text" name="gender" placeholder="Gender">
-						<label class="info-label w3-padding-16">Age</label>
-						<input class="w3-input w3-padding-16" type="text" name="age" placeholder="Age">
-						<label class="info-label w3-padding-16">State</label>
-						<input class="w3-input w3-padding-16" type="text" name="loaction" placeholder="Location">
-						<button type="button w3-padding-16" style="margin-top: 15px;" class="w3-btn w3-blue" onclick="nextPage()">Continue</button>
-					</form>
-				</div>
-				
-				<!-- display -->
-				<div id="diagnosis" class="diagnosis">
-					<div class="w3-row">
-						<a href="javascript:void(0)" onclick="openSymp(event, 'Upper');">
-							<div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding w3-border-red">Upper</div>
-						</a>
-						<a href="javascript:void(0)" onclick="openSymp(event, 'Lower');">
-							<div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">Lower</div>
-						</a>
-						<a href="javascript:void(0)" onclick="openSymp(event, 'Skin');">
-							<div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">Skin</div>
-						</a>
-						<a href="javascript:void(0)" onclick="openSymp(event, 'General');">
-							<div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">General</div>
-						</a>
+				<div class="w3-display-container w3-container w3-content w3-display-topmiddle w3-animate-opacity w3-text-white">
+					<!-- Instruction -->
+					
+					<div class="w3-panel w3-xlarge">
+						<span id="title" class="w3-large w3-center">Please Fill Your Info.</span>
+					</div>
+			
+					<br>
+					<!-- info -->
+					<div id="info" class="basic-info">
+						<form class="w3-display-container">
+							<label class="w3-padding-16">Name</label>
+							<input class="w3-input w3-padding-16" type="text" name="fname" placeholder="First Name">
+							<input class="w3-input w3-padding-16" type="text" name="lname" placeholder="Last Name">
+							<label class="info-label w3-padding-16">Gender</label>
+							<input class="w3-input w3-padding-16" type="text" name="gender" placeholder="Gender">
+							<label class="info-label w3-padding-16">Age</label>
+							<input class="w3-input w3-padding-16" type="text" name="age" placeholder="Age">
+							<label class="info-label w3-padding-16">State</label>
+							<input class="w3-input w3-padding-16" type="text" name="loaction" placeholder="Location">
+							<button type="button w3-padding-16" style="margin-top: 15px;" class="w3-btn w3-blue" onclick="nextPage()">Continue</button>
+						</form>
 					</div>
 					
-					<div id="Upper" class="w3-container symp" style="display:block">
-						<ul id="upper_symp_list" class="data-chest w3-ul w3-hoverable">
-							<li v-for="symp in upper_symps_list">
-								{{ '{{ symp.code }}. {{ symp.name }}' }}
-							</li>
-						</ul>
-					</div>
-				
-					<div id="Lower" class="w3-container symp" style="display:none">
-					    <ul id="lower_symp_list" class="data-lower w3-ul w3-hoverable">
-						    <li v-for="symp in lower_symps_list">
-							    {{ '{{ symp.code }}. {{ symp.name }}' }}
-						    </li>
-						</ul>
+					<!-- display -->
+					<div id="diagnosis" class="diagnosis">
+						<div class="w3-row">
+							<a href="javascript:void(0)" onclick="openSymp(event, 'Upper');">
+								<div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding w3-border-red">Upper</div>
+							</a>
+							<a href="javascript:void(0)" onclick="openSymp(event, 'Lower');">
+								<div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">Lower</div>
+							</a>
+							<a href="javascript:void(0)" onclick="openSymp(event, 'Skin');">
+								<div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">Skin</div>
+							</a>
+							<a href="javascript:void(0)" onclick="openSymp(event, 'General');">
+								<div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">General</div>
+							</a>
+						</div>
+						
+						<div id="Upper" class="w3-container symp" style="display:block">
+							<ul id="upper_symp_list" class="data-chest w3-ul w3-hoverable">
+								<li v-for="symp in upper_symps_list">
+									{% raw %}
+									<input v-bind:name="symp.name" v-bind:value="symp.code" class="w3-check" type="checkbox" v-model="checkedSymptoms">
+									<label>{{ symp.code }}. {{ symp.name }}</label>
+									{% endraw %}
+								</li>
+							</ul>
+						</div>
+					
+						<div id="Lower" class="w3-container symp" style="display:none">
+							<ul id="lower_symp_list" class="data-lower w3-ul w3-hoverable">
+								<li v-for="symp in lower_symps_list">
+									{% raw %}
+									<input v-bind:name="symp.name" v-bind:value="symp.code" class="w3-check" type="checkbox" v-model="checkedSymptoms">
+									<label>{{ symp.code }}. {{ symp.name }}</label>
+									{% endraw %}
+								</li>
+							</ul>
+						</div>
+						
+						<div id="Skin" class="w3-container symp" style="display:none">
+							<ul id="skin_symp_list" class="data-skin w3-ul w3-hoverable">
+								<li v-for="symp in skin_symps_list">
+									{% raw %}
+									<input v-bind:name="symp.name" v-bind:value="symp.code" class="w3-check" type="checkbox" v-model="checkedSymptoms">
+									<label>{{ symp.code }}. {{ symp.name }}</label>
+									{% endraw %}
+								</li>
+							</ul>
+						</div>
+
+						<div id="General" class="w3-container symp" style="display:none">
+							<ul id="general_symp_list" class="data-general w3-ul w3-hoverable">
+								<li v-for="symp in general_symps_list">
+									{% raw %}
+									<input v-bind:name="symp.name" v-bind:value="symp.code" class="w3-check" type="checkbox" v-model="checkedSymptoms">
+									<label>{{ symp.code }}. {{ symp.name }}</label>
+									{% endraw %}
+								</li>
+							</ul>
+						</div>
 					</div>
 					
-					<div id="Skin" class="w3-container symp" style="display:none">
-					    <ul id="skin_symp_list" class="data-skin w3-ul w3-hoverable">
-						    <li v-for="symp in skin_symps_list">
-							    {{ '{{ symp.code }}. {{ symp.name }}' }}
-						    </li>
-						</ul>
-					</div>
-
-					<div id="General" class="w3-container symp" style="display:none">
-				   	    <ul id="general_symp_list" class="data-general w3-ul w3-hoverable">
-						    <li v-for="symp in general_symps_list">
-							    {{ '{{ symp.code }}. {{ symp.name }}' }}
-						    </li>
-						</ul>
-					</div>
 				</div>
-
-				<!--<div>
-					<h2>Input Hello World</h2>
-					<form action="/new" method="POST">
-						<input type="text" name="helloworld" id="helloworld" value="helloworld" />	
-						<input class="myButton" type="submit" value="submit" />
-					</form>
-
-					<h2>Hello World Chant Wall</h2>
-					{% for item in items %}
-					<p>{{ item["helloworld"] }}</p>
-					{% endfor %}
-				</div>-->
+				<div id="Selection" class="w3-bar-block w3-display-right w3-animate-opacity w3-text-white">
+					<p class="w3-large w3-center">Selected</p>
+					<span>Checked symptoms: {{ '{{ checkedSymptoms }}' }}</span>
+					<ul id="selected_symp_list" class="data-chest w3-ul w3-hoverable">
+						<!--<li v-for="sympId in checkedSymptoms">{{ '{{ symp_names.{} }}' }}</li>-->
+					</ul>
+				</div>
 			</div>
 		</body>
 	</html>

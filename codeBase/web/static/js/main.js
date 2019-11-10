@@ -1,18 +1,21 @@
 var app = new Vue({
     el: '#app',
     data: {
-        upper_symps_list: [
-            { "name": "sneezing", "code": 1 },
-            { "name": "runny nose", "code": 2 },
-            { "name": "headache", "code": 3 }
-        ]
+        upper_symps_list: [],
+        lower_symps_list: [],
+        skin_symps_list: [],
+        general_symps_list: [],
+        symp_names: {},
+        checkedSymptoms: []
     },
     created: function() {
         $.getJSON(window.location.origin + '/static/js/symptoms.json', function(data) {
             for(let attr in data) {
                 this[attr] = data[attr]
+                for(let pair in data[attr]) {
+                    this['symp_names'][pair['code']] = pair['name']
+                }
             }
-            console.log(this);
         }.bind(this));
     }
 });
