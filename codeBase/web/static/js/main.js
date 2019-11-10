@@ -5,17 +5,18 @@ var app = new Vue({
         lower_symps_list: [],
         skin_symps_list: [],
         general_symps_list: [],
-        symp_names: {},
+        symp_names: [],
         checkedSymptoms: []
     },
     created: function() {
         $.getJSON(window.location.origin + '/static/js/symptoms.json', function(data) {
-            for(let attr in data) {
-                this[attr] = data[attr]
-                for(let pair in data[attr]) {
-                    this['symp_names'][pair['code']] = pair['name']
-                }
+            let items = [];
+            for(let [attr, list] of Object.entries(data)) {
+                this[attr] = list;
+                list.forEach(function(pair) { items[pair['code']] = pair['name']; });
             }
+            console.log(items);
+            this.symp_names = items;
         }.bind(this));
     }
 });

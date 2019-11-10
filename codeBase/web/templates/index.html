@@ -118,10 +118,9 @@
 					
 				</div>
 				<div id="Selection" class="w3-bar-block w3-display-right w3-animate-opacity w3-text-white">
-					<p class="w3-large w3-center">Selected</p>
-					<span>Checked symptoms: {{ '{{ checkedSymptoms }}' }}</span>
+					<span>Checked symptoms: {{ '{{ checkedSymptoms.length }}' }}</span>
 					<ul id="selected_symp_list" class="data-chest w3-ul w3-hoverable">
-						<!--<li v-for="sympId in checkedSymptoms">{{ '{{ symp_names.{} }}' }}</li>-->
+						<li v-for="sympId in checkedSymptoms">{{ '{{ symp_names[sympId] }}' }}</li>
 					</ul>
 				</div>
 			</div>
